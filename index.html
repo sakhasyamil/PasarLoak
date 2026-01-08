@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PasarLoak | Marketplace Mewah</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+    <img src="https://www.shutterstock.com/image-vector/logo-design-badge-classic-retro-600nw-2343639707.jpg" alt="Logo PasarLoak">
+        </div>
+            <nav id="nav-wrapper">
+                <ul class="nav-list">
+                    <li><a href="javascript:void(0)" onclick="navigasi('home')" class="nav-link active">Beranda</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigasi('market')" class="nav-link">Katalog</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigasi('transaksi')" class="nav-link">Transaksi</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigasi('profil')" class="nav-link">Tentang Kami</a></li>
+                    <li><a href="javascript:void(0)" onclick="navigasi('login')" class="nav-link btn-auth">Masuk</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section id="home" class="page active hero-page">
+            <div class="hero-wrapper">
+                <div class="hero-content">
+                    <span class="hero-tag">Marketplace Premium</span>
+                    <h1>Temukan Kemewahan, <br><span class="text-gold">Rangkul Petualangan.</span></h1>
+                    <p>Beri nilai baru pada barang lama Anda dengan pelayanan eksklusif dan terpercaya.</p>
+                    <div class="hero-btns">
+                        <button onclick="navigasi('market')" class="btn-hero btn-gold-gradient">
+                            <i class="fas fa-compass"></i> Mulai Jelajahi
+                        </button>
+                        <button onclick="navigasi('transaksi')" class="btn-hero btn-outline-gold">
+                            <i class="fas fa-tag"></i> Mulai Berjualan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="market" class="page">
+            <div class="container-full">
+                <div class="section-title-center">
+                    <h2>Katalog Penjualan</h2>
+                    <div class="search-box-luxury">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="inputCari" placeholder="Cari barang mewah..." onkeyup="filterBarang()">
+                    </div>
+                </div>
+                <div class="market-grid" id="market-container">
+                    </div>
+            </div>
+        </section>
+
+        <section id="transaksi" class="page">
+            <div class="container-split">
+                <div class="glass-card form-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-edit"></i> Input Transaksi Baru</h3>
+                    </div>
+                    <form id="formTransaksi">
+                        <div class="form-group-luxury">
+                            <i class="fas fa-box"></i>
+                            <input type="text" id="namaT" placeholder="Nama Barang (contoh: Rolex Klasik)">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group-luxury">
+                                <i class="fas fa-coins"></i>
+                                <input type="number" id="jumlahT" placeholder="Nilai Harga">
+                            </div>
+                            <div class="form-group-luxury">
+                                <i class="fas fa-list"></i>
+                                <select id="kategoriT">
+                                    <option value="">Pilih Kategori</option>
+                                    <option value="Elektronik">Elektronik</option>
+                                    <option value="Furniture">Furnitur</option>
+                                    <option value="Otomotif">Otomotif</option>
+                                    <option value="Properti">Properti</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-gold-full btn-glow">
+                            <i class="fas fa-paper-plane"></i> Publikasikan Iklan
+                        </button>
+                    </form>
+                </div>
+
+                <div class="glass-card table-card" id="daftar-tabel">
+                    <div class="card-header">
+                        <h3><i class="fas fa-clipboard-list"></i> Daftar Transaksi</h3>
+                    </div>
+                    <div class="table-responsive-luxury">
+                        <table id="tabelData">
+                            <thead>
+                                <tr>
+                                    <th>Barang</th>
+                                    <th>Nilai</th>
+                                    <th>Kategori</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="profil" class="page">
+    <div class="container-narrow">
+        <div class="glass-card about-card">
+            <div class="about-header">
+                <i class="fas fa-university text-gold fa-2x"></i>
+                <h2>Tentang PasarLoak</h2>
+            </div>
+            
+            <div class="about-content">
+                <h3>Apa itu PasarLoak?</h3>
+                <p>
+                    <strong>PasarLoak</strong> adalah platform marketplace eksklusif yang didedikasikan untuk pencinta barang <em>thrift</em> (bekas berkualitas) dan kolektor barang antik (vintage). 
+                    Kami hadir untuk memberikan nilai baru pada barang-barang yang memiliki sejarah, menggabungkan nuansa retro dengan kenyamanan teknologi modern.
+                </p>
+
+                <hr class="divider">
+
+                <h3>Tujuan Pengembangan</h3>
+                <p>
+                    Website ini dikembangkan sebagai <strong>Proyek Tugas Akhir Mata Kuliah Pengembangan Web</strong>. 
+                    Tujuan utama dari pembuatan platform ini adalah:
+                </p>
+                <ul class="purpose-list">
+                    <li><i class="fas fa-check-circle"></i> Implementasi desain responsif menggunakan HTML5 dan CSS dan JavaScript.</li>
+                    <li><i class="fas fa-check-circle"></i> Penerapan logika program Single Page Application (SPA) dengan JavaScript.</li>
+                    <li><i class="fas fa-check-circle"></i> Manajemen data interaktif menggunakan sistem <em>LocalStorage</em>.</li>
+                    <li><i class="fas fa-check-circle"></i> Studi kasus integrasi User Experience (UX) pada platform e-commerce.</li>
+                </ul>
+            </div>
+
+            <div class="contact-section">
+                <h3>Hubungi Pengembang</h3>
+                <div class="contact-grid">
+                    <a href="https://wa.me/6289521111260" target="_blank" rel="noopener noreferrer" class="contact-item whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://t.me/sakhasyamil" target="_blank" rel="noopener noreferrer" class="contact-item telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="https://instagram.com/sakhask_" target="_blank" rel="noopener noreferrer" class="contact-item instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="login" class="page auth-page">
+            <div class="auth-container">
+                <div class="glass-card auth-card">
+                    <div class="auth-header">
+                        <i class="fas fa-user-circle fa-3x text-gold"></i>
+                        <h2>Masuk</h2>
+                    </div>
+                    <div class="form-group-luxury">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Nama Pengguna">
+                    </div>
+                    <div class="form-group-luxury">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Kata Sandi">
+                    </div>
+                    <button class="btn-gold-full btn-glow btn-login-anim">
+                        <span class="btn-text">Akses Sekarang</span>
+                        <i class="fas fa-arrow-right btn-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 PasarLoak | Gaya Marketplace Mewah.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

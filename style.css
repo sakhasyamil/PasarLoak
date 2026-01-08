@@ -1,0 +1,661 @@
+/* --- Global Variables (Palette Baru: Vintage Thrift / Pasar Loak) --- */
+:root {
+    /* Latar Belakang Utama (Nuansa Kertas Tua/Krem) */
+    --bg-main: #fcf8f1;
+    /* Latar Belakang Sekunder (Nuansa Kayu/Tanah) */
+    --bg-secondary: #eae0d5;
+    /* Warna Kartu/Kontainer (Putih Gading) */
+    --bg-card: #ffffff;
+    
+    /* Warna Aksen: Terracotta & Copper (Menggantikan Gold) */
+    --gold: #a0522d; /* Warna Karat/Sienna */
+    --gold-dark: #5e3023; /* Cokelat Gelap */
+    --gold-light: #f2e8da; /* Krem Terang */
+    
+    /* Gradasi Vintage (Tembaga/Copper Karat) */
+    --gold-gradient: linear-gradient(135deg, #a0522d 0%, #d2b48c 50%, #8b4513 100%);
+    
+    /* Warna Teks (Cokelat Kopi untuk kontras retro) */
+    --text-dark: #2b1b17; /* Hampir hitam cokelat */
+    --text-muted: #6d5d55; /* Abu-abu kecokelatan */
+    --text-white: #fcf8f1; /* Putih gading untuk teks tombol */
+
+    /* Border dan Shadow Nuansa Klasik */
+    --border-subtle: #d3ccc3;
+    --border-gold: rgba(160, 82, 45, 0.3);
+    --shadow-luxury: 0 10px 30px rgba(94, 48, 35, 0.15);
+    --glass-light: rgba(252, 248, 241, 0.85); /* Efek kaca versi hangat */
+}
+
+/* --- Base Reset & Layout Fix --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html, 
+body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body { 
+    font-family: 'Poppins', sans-serif; 
+    /* Menggunakan background body nuansa kertas tua */
+    background: var(--bg-secondary); 
+    /* Warna teks cokelat gelap */
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 2. Navigation Styling --- */
+.main-header { 
+    /* Header warna krem transparan */
+    background: rgba(252, 248, 241, 0.95); 
+    backdrop-filter: blur(20px); 
+    padding: 0;
+    /* Border bawah warna terracotta */
+    border-bottom: 2px solid var(--gold); 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+}
+
+.header-container { 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 1rem 2rem;
+    height: 80px;
+}
+
+/* Penyesuaian khusus untuk Logo Badge Bulat */
+.logo img {
+    height: 70px; /* Sedikit lebih tinggi karena bentuknya bulat */
+    width: auto;
+    object-fit: contain;
+    /* Memberikan efek bayangan lembut agar terlihat seperti stempel asli */
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Sedikit rotasi saat dimuat agar terasa vintage */
+    transform: rotate(-2deg);
+}
+
+.logo img:hover {
+    /* Efek interaksi: Logo tegak dan membesar saat disentuh */
+    transform: scale(1.1) rotate(0deg);
+    filter: drop-shadow(0 6px 12px rgba(160, 82, 45, 0.3));
+}
+
+/* Pastikan header container cukup luas untuk logo bulat */
+.header-container {
+    height: 100px; /* Menambah sedikit ruang header */
+}
+
+.nav-list { 
+    display: flex; 
+    list-style: none; 
+    gap: 2.5rem; 
+    align-items: center; 
+}
+
+.nav-link { 
+    text-decoration: none; 
+    color: var(--text-muted); 
+    font-weight: 500; 
+    font-size: 0.95rem;
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--gold);
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active, 
+.nav-link:hover { 
+    color: var(--gold); 
+}
+
+.btn-auth { 
+    /* Menggunakan gradasi tembaga karat */
+    background: var(--gold-gradient);
+    color: var(--text-white) !important; 
+    padding: 0.6rem 1.8rem; 
+    border-radius: 8px; /* Lebih kotak untuk kesan vintage */
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 4px 15px rgba(160, 82, 45, 0.3);
+    transition: 0.3s;
+}
+
+.btn-auth:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(160, 82, 45, 0.5);
+}
+
+/* --- 4. Hero Buttons & Full Height Fix --- */
+.page { 
+    display: none; 
+    flex: 1;
+    animation: fadeIn 0.6s ease; 
+}
+
+.page.active { 
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-page {
+    padding: 0;
+}
+
+.hero-wrapper { 
+    flex: 1;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    /* Overlay sepia hangat */
+    background: linear-gradient(rgba(252, 248, 241, 0.8), rgba(252, 248, 241, 0.8)), 
+                url('http://googleusercontent.com/image_collection/image_retrieval/14319785700638675826_0');
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed;
+}
+
+h1 { 
+    font-size: 3.5rem; 
+    font-weight: 800; 
+    line-height: 1.2; 
+    color: var(--text-dark);
+}
+
+.hero-content p {
+    color: var(--text-muted);
+}
+
+.text-gold { 
+    /* Teks emas diubah menjadi warna karat yang menonjol */
+    color: var(--gold);
+    font-weight: 900;
+}
+
+.hero-tag { 
+    border: 2px solid var(--gold); 
+    padding: 6px 20px; 
+    border-radius: 4px; 
+    color: var(--gold); 
+    font-weight: 700;
+    background: var(--gold-light);
+    font-size: 0.8rem; 
+    letter-spacing: 2px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+
+.btn-hero {
+    padding: 1rem 2.5rem;
+    border-radius: 8px; /* Lebih kaku untuk nuansa industrial loak */
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-gold-gradient {
+    background: var(--gold-gradient);
+    color: var(--text-white);
+    border: none;
+    box-shadow: 0 4px 15px rgba(160, 82, 45, 0.4);
+}
+
+.btn-gold-gradient:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(160, 82, 45, 0.6);
+}
+
+.btn-outline-gold {
+    background: var(--bg-main);
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.btn-outline-gold:hover {
+    background: var(--gold-light);
+    transform: translateY(-3px);
+}
+
+/* --- Marketplace Search Bar Vintage --- */
+.container-full {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex: 1;
+    background-color: var(--bg-secondary);
+}
+
+.section-title-center h2 {
+    color: var(--text-dark);
+}
+
+.search-box-luxury {
+    position: relative;
+    max-width: 600px;
+    margin: 1.5rem auto 0;
+}
+
+.search-box-luxury input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    /* Input putih gading */
+    background: var(--bg-main);
+    border: 2px solid var(--border-gold);
+    border-radius: 8px;
+    color: var(--text-dark);
+    font-size: 1rem;
+    box-shadow: 0 5px 20px rgba(94, 48, 35, 0.1);
+    transition: 0.3s;
+}
+
+.search-box-luxury input:focus {
+    border-color: var(--gold-dark);
+    box-shadow: 0 5px 25px rgba(160, 82, 45, 0.3);
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+}
+
+/* --- Marketplace Grid & Luxury Card (Vintage Theme) --- */
+.market-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+    gap: 2rem; 
+    padding: 3rem 0;
+}
+
+.luxury-card { 
+    /* Kartu putih gading dengan shadow cokelat halus */
+    background: var(--bg-card); 
+    border-radius: 12px; 
+    overflow: hidden; 
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-luxury);
+    transition: 0.3s;
+}
+
+.luxury-card:hover { 
+    transform: translateY(-10px); 
+    border-color: var(--gold);
+    box-shadow: 0 15px 40px rgba(160, 82, 45, 0.25);
+}
+
+.card-body h3 {
+    color: var(--text-dark);
+}
+
+.item-desc {
+    color: var(--text-muted);
+}
+
+/* --- 5. Transaction Page Developed (Vintage Theme) --- */
+.container-split {
+    display: flex;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex: 1;
+    align-items: flex-start;
+    background-color: var(--bg-secondary);
+}
+
+.glass-card {
+    background: var(--bg-main);
+    border-radius: 12px;
+    border: 2px solid var(--border-gold);
+    padding: 2rem;
+    box-shadow: var(--shadow-luxury);
+}
+
+.card-header {
+    border-bottom: 2px solid var(--border-subtle);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-header h3 {
+    color: var(--text-dark);
+}
+
+.card-header h3 i {
+    color: var(--gold);
+}
+
+.form-group-luxury i {
+    color: var(--gold);
+}
+
+.form-group-luxury input,
+.form-group-luxury select {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 3rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    color: var(--text-dark);
+}
+
+.form-group-luxury input:focus,
+.form-group-luxury select:focus {
+    border-color: var(--gold);
+    background: var(--bg-main);
+    box-shadow: 0 0 10px rgba(160, 82, 45, 0.2);
+    outline: none;
+}
+
+.btn-gold-full {
+    width: 100%;
+    padding: 1rem;
+    background: var(--gold-gradient);
+    border: none;
+    border-radius: 6px;
+    color: var(--text-white);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(160, 82, 45, 0.3);
+}
+
+.btn-glow:hover {
+    box-shadow: 0 8px 25px rgba(160, 82, 45, 0.5);
+    transform: translateY(-2px);
+}
+
+/* --- Table Luxury Style (Vintage Theme) --- */
+th {
+    text-align: left;
+    padding: 1rem;
+    color: var(--text-white);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    border-bottom: 3px solid var(--gold-dark);
+    background: var(--gold); /* Header tabel warna terracotta */
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg-main);
+    color: var(--text-dark);
+    transition: 0.2s;
+}
+
+tr:hover td {
+    background: var(--gold-light);
+}
+
+/* --- 6. About Us Social Section Styling --- */
+
+/* --- Tambahan Deskripsi & Tujuan Kuliah --- */
+.about-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.about-content h3 {
+    color: var(--gold);
+    margin: 1.5rem 0 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 2rem 0;
+}
+
+.purpose-list {
+    list-style: none;
+    padding: 0;
+    text-align: left; /* Agar poin-poin tetap rapi ke kiri */
+}
+
+.purpose-list li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.purpose-list i {
+    color: var(--gold);
+    font-size: 1rem;
+}
+/* --- Akhir Tambahan --- */
+
+/* Grid Kontainer Tombol (Kode Anda yang sudah ada di bawah ini) */
+.contact-grid {
+    display: grid;
+    /* ... dan seterusnya ... */}
+
+/* Base Style untuk Setiap Tombol Kontak */
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: var(--bg-card);
+    border: 2px solid var(--border-subtle);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: var(--shadow-luxury);
+}
+
+/* Icon Style */
+.contact-item i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+/* Text Label Style */
+.contact-item span {
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Efek Hover Khusus Berdasarkan Brand --- */
+
+/* Hover WhatsApp */
+.contact-item.whatsapp:hover {
+    border-color: #25D366;
+    background: rgba(37, 211, 102, 0.05);
+    transform: translateY(-8px);
+}
+
+.contact-item.whatsapp:hover i {
+    color: #25D366;
+    transform: scale(1.2);
+}
+
+/* Hover Telegram */
+.contact-item.telegram:hover {
+    border-color: #0088cc;
+    background: rgba(0, 136, 204, 0.05);
+    transform: translateY(-8px);
+}
+
+.contact-item.telegram:hover i {
+    color: #0088cc;
+    transform: scale(1.2);
+}
+
+/* Hover Instagram */
+.contact-item.instagram:hover {
+    border-color: #E1306C;
+    background: rgba(225, 48, 108, 0.05);
+    transform: translateY(-8px);
+}
+
+.contact-item.instagram:hover i {
+    color: #E1306C;
+    transform: scale(1.2);
+}
+
+/* Efek Klik (Active State) */
+.contact-item:active {
+    transform: scale(0.95);
+}
+
+/* Responsivitas untuk Layar HP (Poin 8) */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr; /* Tombol menumpuk ke bawah di HP */
+        gap: 1rem;
+    }
+    
+    .contact-item {
+        flex-direction: row;
+        padding: 1.2rem;
+        gap: 1.5rem;
+    }
+    
+    .contact-item i {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+    }
+}
+/* --- 7. Login Page --- */
+.auth-page {
+    background-color: var(--bg-secondary);
+}
+
+.auth-card {
+    background: var(--bg-main);
+    border: 2px solid var(--gold);
+    box-shadow: var(--shadow-luxury);
+}
+
+/* --- Footer --- */
+.main-footer {
+    /* Footer warna cokelat gelap kental */
+    background: var(--text-dark);
+    padding: 1.5rem;
+    text-align: center;
+    border-top: 4px solid var(--gold);
+    color: var(--bg-secondary);
+}
+
+/* --- 8. Responsiveness --- */
+@media (max-width: 992px) {
+    .container-split {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0 1.5rem;
+    }
+    .nav-list {
+        display: none;
+    }
+    .hamburger {
+        display: flex;
+        color: var(--text-dark);
+    }
+    .hamburger span {
+        background-color: var(--text-dark);
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* --- Animations & Misc --- */
+.page { 
+    display: none; 
+    flex: 1;
+    animation: fadeIn 0.5s ease; 
+}
+
+.page.active { 
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(10px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+.card-img-box {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-bottom: 3px solid var(--gold);
+}
+
+.prod-img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.5s;
+}
+
+.luxury-card:hover .prod-img {
+    transform: scale(1.1);
+}
