@@ -1,33 +1,25 @@
-/* --- Global Variables (Palette Baru: Vintage Thrift / Pasar Loak) --- */
 :root {
-    /* Latar Belakang Utama (Nuansa Kertas Tua/Krem) */
     --bg-main: #fcf8f1;
-    /* Latar Belakang Sekunder (Nuansa Kayu/Tanah) */
     --bg-secondary: #eae0d5;
-    /* Warna Kartu/Kontainer (Putih Gading) */
     --bg-card: #ffffff;
     
-    /* Warna Aksen: Terracotta & Copper (Menggantikan Gold) */
-    --gold: #a0522d; /* Warna Karat/Sienna */
-    --gold-dark: #5e3023; /* Cokelat Gelap */
-    --gold-light: #f2e8da; /* Krem Terang */
+    --gold: #a0522d; 
+    --gold-dark: #5e3023; 
+    --gold-light: #f2e8da; 
     
-    /* Gradasi Vintage (Tembaga/Copper Karat) */
     --gold-gradient: linear-gradient(135deg, #a0522d 0%, #d2b48c 50%, #8b4513 100%);
     
-    /* Warna Teks (Cokelat Kopi untuk kontras retro) */
-    --text-dark: #2b1b17; /* Hampir hitam cokelat */
-    --text-muted: #6d5d55; /* Abu-abu kecokelatan */
-    --text-white: #fcf8f1; /* Putih gading untuk teks tombol */
+    --text-dark: #2b1b17; 
+    --text-muted: #6d5d55; 
+    --text-white: #fcf8f1; 
 
-    /* Border dan Shadow Nuansa Klasik */
     --border-subtle: #d3ccc3;
     --border-gold: rgba(160, 82, 45, 0.3);
     --shadow-luxury: 0 10px 30px rgba(94, 48, 35, 0.15);
-    --glass-light: rgba(252, 248, 241, 0.85); /* Efek kaca versi hangat */
+    --glass-light: rgba(252, 248, 241, 0.85); 
 }
 
-/* --- Base Reset & Layout Fix --- */
+
 * { 
     margin: 0; 
     padding: 0; 
@@ -42,9 +34,7 @@ body {
 
 body { 
     font-family: 'Poppins', sans-serif; 
-    /* Menggunakan background body nuansa kertas tua */
     background: var(--bg-secondary); 
-    /* Warna teks cokelat gelap */
     color: var(--text-dark);
     display: flex;
     flex-direction: column;
@@ -56,13 +46,10 @@ body {
     flex-direction: column;
 }
 
-/* --- 2. Navigation Styling --- */
 .main-header { 
-    /* Header warna krem transparan */
     background: rgba(252, 248, 241, 0.95); 
     backdrop-filter: blur(20px); 
     padding: 0;
-    /* Border bawah warna terracotta */
     border-bottom: 2px solid var(--gold); 
     position: sticky; 
     top: 0; 
@@ -79,27 +66,23 @@ body {
     height: 80px;
 }
 
-/* Penyesuaian khusus untuk Logo Badge Bulat */
 .logo img {
-    height: 70px; /* Sedikit lebih tinggi karena bentuknya bulat */
+    height: 70px; 
     width: auto;
     object-fit: contain;
-    /* Memberikan efek bayangan lembut agar terlihat seperti stempel asli */
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    /* Sedikit rotasi saat dimuat agar terasa vintage */
     transform: rotate(-2deg);
 }
 
 .logo img:hover {
-    /* Efek interaksi: Logo tegak dan membesar saat disentuh */
     transform: scale(1.1) rotate(0deg);
     filter: drop-shadow(0 6px 12px rgba(160, 82, 45, 0.3));
 }
 
-/* Pastikan header container cukup luas untuk logo bulat */
+
 .header-container {
-    height: 100px; /* Menambah sedikit ruang header */
+    height: 100px; 
 }
 
 .nav-list { 
@@ -140,11 +123,10 @@ body {
 }
 
 .btn-auth { 
-    /* Menggunakan gradasi tembaga karat */
     background: var(--gold-gradient);
     color: var(--text-white) !important; 
     padding: 0.6rem 1.8rem; 
-    border-radius: 8px; /* Lebih kotak untuk kesan vintage */
+    border-radius: 8px; 
     font-weight: 600;
     border: none;
     box-shadow: 0 4px 15px rgba(160, 82, 45, 0.3);
@@ -156,7 +138,7 @@ body {
     box-shadow: 0 6px 20px rgba(160, 82, 45, 0.5);
 }
 
-/* --- 4. Hero Buttons & Full Height Fix --- */
+
 .page { 
     display: none; 
     flex: 1;
@@ -178,7 +160,6 @@ body {
     align-items: center; 
     justify-content: center; 
     text-align: center;
-    /* Overlay sepia hangat */
     background: linear-gradient(rgba(252, 248, 241, 0.8), rgba(252, 248, 241, 0.8)), 
                 url('http://googleusercontent.com/image_collection/image_retrieval/14319785700638675826_0');
     background-size: cover; 
@@ -198,7 +179,6 @@ h1 {
 }
 
 .text-gold { 
-    /* Teks emas diubah menjadi warna karat yang menonjol */
     color: var(--gold);
     font-weight: 900;
 }
@@ -223,7 +203,7 @@ h1 {
 
 .btn-hero {
     padding: 1rem 2.5rem;
-    border-radius: 8px; /* Lebih kaku untuk nuansa industrial loak */
+    border-radius: 8px; 
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
@@ -257,7 +237,7 @@ h1 {
     transform: translateY(-3px);
 }
 
-/* --- Marketplace Search Bar Vintage --- */
+
 .container-full {
     padding: 4rem 2rem;
     max-width: 1400px;
@@ -303,7 +283,7 @@ h1 {
     color: var(--gold);
 }
 
-/* --- Marketplace Grid & Luxury Card (Vintage Theme) --- */
+
 .market-grid { 
     display: grid; 
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
@@ -312,7 +292,7 @@ h1 {
 }
 
 .luxury-card { 
-    /* Kartu putih gading dengan shadow cokelat halus */
+
     background: var(--bg-card); 
     border-radius: 12px; 
     overflow: hidden; 
@@ -335,7 +315,7 @@ h1 {
     color: var(--text-muted);
 }
 
-/* --- 5. Transaction Page Developed (Vintage Theme) --- */
+
 .container-split {
     display: flex;
     gap: 2rem;
@@ -414,7 +394,7 @@ h1 {
     transform: translateY(-2px);
 }
 
-/* --- Table Luxury Style (Vintage Theme) --- */
+
 th {
     text-align: left;
     padding: 1rem;
@@ -423,7 +403,7 @@ th {
     text-transform: uppercase;
     font-size: 0.85rem;
     border-bottom: 3px solid var(--gold-dark);
-    background: var(--gold); /* Header tabel warna terracotta */
+    background: var(--gold); 
 }
 
 td {
@@ -438,9 +418,6 @@ tr:hover td {
     background: var(--gold-light);
 }
 
-/* --- 6. About Us Social Section Styling --- */
-
-/* --- Tambahan Deskripsi & Tujuan Kuliah --- */
 .about-header {
     text-align: center;
     margin-bottom: 2rem;
@@ -463,7 +440,7 @@ tr:hover td {
 .purpose-list {
     list-style: none;
     padding: 0;
-    text-align: left; /* Agar poin-poin tetap rapi ke kiri */
+    text-align: left;
 }
 
 .purpose-list li {
@@ -479,14 +456,10 @@ tr:hover td {
     color: var(--gold);
     font-size: 1rem;
 }
-/* --- Akhir Tambahan --- */
-
-/* Grid Kontainer Tombol (Kode Anda yang sudah ada di bawah ini) */
 .contact-grid {
     display: grid;
-    /* ... dan seterusnya ... */}
+   }
 
-/* Base Style untuk Setiap Tombol Kontak */
 .contact-item {
     display: flex;
     flex-direction: column;
@@ -502,14 +475,12 @@ tr:hover td {
     box-shadow: var(--shadow-luxury);
 }
 
-/* Icon Style */
 .contact-item i {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     transition: transform 0.3s ease;
 }
 
-/* Text Label Style */
 .contact-item span {
     font-weight: 700;
     font-size: 0.9rem;
@@ -517,9 +488,6 @@ tr:hover td {
     letter-spacing: 1px;
 }
 
-/* --- Efek Hover Khusus Berdasarkan Brand --- */
-
-/* Hover WhatsApp */
 .contact-item.whatsapp:hover {
     border-color: #25D366;
     background: rgba(37, 211, 102, 0.05);
@@ -531,7 +499,6 @@ tr:hover td {
     transform: scale(1.2);
 }
 
-/* Hover Telegram */
 .contact-item.telegram:hover {
     border-color: #0088cc;
     background: rgba(0, 136, 204, 0.05);
@@ -543,7 +510,6 @@ tr:hover td {
     transform: scale(1.2);
 }
 
-/* Hover Instagram */
 .contact-item.instagram:hover {
     border-color: #E1306C;
     background: rgba(225, 48, 108, 0.05);
@@ -555,15 +521,13 @@ tr:hover td {
     transform: scale(1.2);
 }
 
-/* Efek Klik (Active State) */
 .contact-item:active {
     transform: scale(0.95);
 }
 
-/* Responsivitas untuk Layar HP (Poin 8) */
 @media (max-width: 768px) {
     .contact-grid {
-        grid-template-columns: 1fr; /* Tombol menumpuk ke bawah di HP */
+        grid-template-columns: 1fr; 
         gap: 1rem;
     }
     
@@ -578,7 +542,7 @@ tr:hover td {
         margin-bottom: 0;
     }
 }
-/* --- 7. Login Page --- */
+
 .auth-page {
     background-color: var(--bg-secondary);
 }
@@ -589,9 +553,8 @@ tr:hover td {
     box-shadow: var(--shadow-luxury);
 }
 
-/* --- Footer --- */
+
 .main-footer {
-    /* Footer warna cokelat gelap kental */
     background: var(--text-dark);
     padding: 1.5rem;
     text-align: center;
@@ -599,7 +562,7 @@ tr:hover td {
     color: var(--bg-secondary);
 }
 
-/* --- 8. Responsiveness --- */
+
 @media (max-width: 992px) {
     .container-split {
         flex-direction: column;
@@ -625,7 +588,7 @@ tr:hover td {
     }
 }
 
-/* --- Animations & Misc --- */
+
 .page { 
     display: none; 
     flex: 1;
@@ -658,4 +621,5 @@ tr:hover td {
 
 .luxury-card:hover .prod-img {
     transform: scale(1.1);
+
 }
